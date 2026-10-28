@@ -319,15 +319,20 @@ document.addEventListener('DOMContentLoaded', () => {
     audioManager.playPop();
   }
 
-  // Wish Modal Controls
+  // Wish Modal Controls (Mobile-Optimized & Highly Interactive)
   const wishPresetsList = document.getElementById('wish-presets-list');
   const wishCustomInput = document.getElementById('wish-custom-input');
   const btnCloseWishModal = document.getElementById('btn-close-wish-modal');
   const btnConfirmWish = document.getElementById('btn-confirm-wish');
 
   if (wishPresetsList) {
-    wishPresetsList.innerHTML = CAKE_DATA.wishOptions.map(opt => `
-      <button class="wish-option-btn" data-wish="${opt.text}" type="button">
+    // Default pre-selection so user always has a wish locked in
+    if (CAKE_DATA.wishOptions && CAKE_DATA.wishOptions.length > 0 && !chosenWish) {
+      chosenWish = CAKE_DATA.wishOptions[0].text;
+    }
+
+    wishPresetsList.innerHTML = CAKE_DATA.wishOptions.map((opt, idx) => `
+      <button class="wish-option-btn ${idx === 0 ? 'selected' : ''}" data-wish="${opt.text}" type="button" aria-label="Select wish: ${opt.title}">
         <span class="wish-opt-icon">${opt.icon}</span>
         <div class="wish-opt-info">
           <span class="wish-opt-title">${opt.title}</span>
@@ -336,23 +341,64 @@ document.addEventListener('DOMContentLoaded', () => {
       </button>
     `).join('');
 
+    if (wishCustomInput && chosenWish) {
+      wishCustomInput.value = chosenWish;
+    }
+
     wishPresetsList.querySelectorAll('.wish-option-btn').forEach(btn => {
       btn.addEventListener('click', () => {
+        wishPresetsList.querySelectorAll('.wish-option-btn').forEach(b => b.classList.remove('selected'));
+        btn.classList.add('selected');
         chosenWish = btn.getAttribute('data-wish');
-        wishCustomInput.value = chosenWish;
+        if (wishCustomInput) wishCustomInput.value = chosenWish;
+        audioManager.playPop();
+
+        // Ensure confirm button is visible on mobile viewports
+        if (btnConfirmWish) {
+          btnConfirmWish.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
       });
+    });
+
+    if (wishCustomInput) {
+      wishCustomInput.addEventListener('input', () => {
+        const val = wishCustomInput.value.trim();
+        wishPresetsList.querySelectorAll('.wish-option-btn').forEach(b => {
+          if (b.getAttribute('data-wish') === val) {
+            b.classList.add('selected');
+          } else {
+            b.classList.remove('selected');
+          }
+        });
+        if (val) chosenWish = val;
+      });
+    }
+  }
+
+  if (btnMakeWish) {
+    btnMakeWish.addEventListener('click', () => {
+      wishModal.classList.add('active');
+      const card = wishModal.querySelector('.wish-modal-card');
+      if (card) card.scrollTop = 0;
     });
   }
 
-  if (btnMakeWish) btnMakeWish.addEventListener('click', () => wishModal.classList.add('active'));
-  if (btnCloseWishModal) btnCloseWishModal.addEventListener('click', () => wishModal.classList.remove('active'));
+  if (btnCloseWishModal) {
+    btnCloseWishModal.addEventListener('click', () => wishModal.classList.remove('active'));
+  }
 
   if (btnConfirmWish) {
     btnConfirmWish.addEventListener('click', () => {
-      const customVal = wishCustomInput.value.trim();
+      const customVal = wishCustomInput ? wishCustomInput.value.trim() : '';
       if (customVal) chosenWish = customVal;
+      if (!chosenWish && CAKE_DATA.wishOptions && CAKE_DATA.wishOptions.length > 0) {
+        chosenWish = CAKE_DATA.wishOptions[0].text;
+      }
       wishModal.classList.remove('active');
       cakeInstruction.textContent = `Wish locked: "${chosenWish.substring(0, 36)}..." ✨ Now blow the candles!`;
+      const wishSub = document.getElementById('user-chosen-wish-display');
+      if (wishSub) wishSub.textContent = `"${chosenWish}"`;
+      confettiEngine.fire(35);
       audioManager.playPop();
     });
   }
