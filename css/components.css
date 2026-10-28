@@ -1,0 +1,342 @@
+/* ==========================================================================
+   Components: Glassmorphism, Controls, Buttons, and Modals
+   ========================================================================== */
+
+/* Glass Card Container */
+.glass-panel {
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--bg-glass-border);
+  box-shadow: var(--bg-glass-shadow);
+  border-radius: var(--radius-lg);
+  position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+/* Eyebrows & Badges */
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-plum-light);
+  background: rgba(220, 213, 255, 0.45);
+  padding: 0.35rem 0.9rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(220, 213, 255, 0.7);
+  width: fit-content;
+}
+
+.badge-milestone {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-plum);
+  background: linear-gradient(135deg, rgba(248, 221, 231, 0.85), rgba(243, 226, 197, 0.85));
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(232, 193, 112, 0.5);
+  box-shadow: 0 2px 10px rgba(73, 52, 79, 0.05);
+}
+
+/* Interactive Buttons */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-ivory);
+  background: linear-gradient(135deg, var(--color-plum), var(--color-plum-light));
+  padding: 0.95rem 2rem;
+  border-radius: var(--radius-full);
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 20px -4px rgba(73, 52, 79, 0.35);
+  text-decoration: none;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+  min-height: 48px;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.7s ease;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -6px rgba(73, 52, 79, 0.45);
+  filter: brightness(1.05);
+}
+
+.btn-primary:hover::after {
+  left: 200%;
+}
+
+.btn-primary:active {
+  transform: translateY(1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--color-plum);
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(73, 52, 79, 0.15);
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  text-decoration: none;
+  transition: all var(--transition-fast);
+  min-height: 44px;
+}
+
+.btn-secondary:hover {
+  background: #ffffff;
+  border-color: var(--color-plum);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-subtle {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.btn-subtle:hover {
+  color: var(--color-plum);
+  text-decoration: underline;
+}
+
+/* Floating Audio Player Bar */
+.audio-floating-pill {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.25rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: rgba(255, 249, 245, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(220, 213, 255, 0.8);
+  border-radius: var(--radius-full);
+  padding: 0.45rem 1rem;
+  box-shadow: 0 4px 16px rgba(73, 52, 79, 0.08);
+  transition: all var(--transition-fast);
+}
+
+.audio-btn {
+  background: var(--color-plum);
+  color: var(--color-ivory);
+  border: none;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.85rem;
+  transition: transform var(--transition-fast), background var(--transition-fast);
+}
+
+.audio-btn:hover {
+  transform: scale(1.08);
+}
+
+.audio-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--color-plum);
+  white-space: nowrap;
+}
+
+.audio-pulse-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-rose-gold);
+  display: inline-block;
+}
+
+.audio-pulse-indicator.playing {
+  background: #48bb78;
+  animation: pulse-ring 1.8s infinite;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(72, 187, 120, 0.7); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 6px rgba(72, 187, 120, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(72, 187, 120, 0); }
+}
+
+/* Quick Accessibility Header Controls */
+.top-nav-controls {
+  position: fixed;
+  top: 1.25rem;
+  left: 1.25rem;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.control-pill {
+  background: rgba(255, 249, 245, 0.85);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(220, 213, 255, 0.7);
+  border-radius: var(--radius-full);
+  padding: 0.4rem 0.85rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.control-pill:hover {
+  color: var(--color-plum);
+  background: #ffffff;
+}
+
+/* Confetti Layer */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1500;
+}
+
+/* Modal / Cinematic Overlay */
+.cinematic-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(45, 30, 50, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.45s ease, visibility 0.45s ease;
+  padding: 1.5rem;
+}
+
+.cinematic-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.cinematic-modal-card {
+  background: #FFF9F5;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--color-champagne);
+  box-shadow: 0 24px 60px -12px rgba(45, 30, 50, 0.4);
+  max-width: 480px;
+  width: 100%;
+  padding: 2.5rem 2rem;
+  text-align: center;
+  transform: scale(0.92) translateY(20px);
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+
+.cinematic-modal-overlay.active .cinematic-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+/* Stage 3 - Compact Volume Control & Floating Player Enhancements */
+.audio-volume-slider {
+  width: 55px;
+  height: 4px;
+  accent-color: var(--color-plum);
+  cursor: pointer;
+  background: rgba(73, 52, 79, 0.15);
+  border-radius: 4px;
+  outline: none;
+  vertical-align: middle;
+}
+
+.audio-track-sub {
+  font-size: 0.68rem;
+  color: var(--text-light);
+  display: block;
+  line-height: 1;
+}
+
+/* Wax Seal Stamp */
+.wax-seal-stamp {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #C84B68 20%, #8C1D40 100%);
+  color: #FFFFFF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 
+    0 4px 14px rgba(140, 29, 64, 0.4), 
+    inset 0 2px 4px rgba(255, 255, 255, 0.35),
+    inset 0 -2px 4px rgba(0, 0, 0, 0.25);
+  font-size: 1.3rem;
+  cursor: pointer;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.wax-seal-stamp:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 20px rgba(140, 29, 64, 0.5);
+}
+
+/* Parchment Letter Base */
+.parchment-letter {
+  background: #FFFDF9;
+  border: 1px solid rgba(232, 193, 112, 0.45);
+  border-radius: var(--radius-lg);
+  box-shadow: 
+    0 20px 50px rgba(73, 52, 79, 0.1),
+    0 2px 6px rgba(0, 0, 0, 0.04);
+  position: relative;
+}

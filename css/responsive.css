@@ -1,0 +1,265 @@
+/* ==========================================================================
+   Responsive Breakpoints: 320px, 375px, 768px, 1024px, 1440px
+   ========================================================================== */
+
+/* Mobile Small (320px - 374px) */
+@media (max-width: 374px) {
+  .intro-card {
+    padding: 2.5rem 1.25rem;
+    gap: 1.2rem;
+  }
+
+  .intro-title {
+    font-size: 2.1rem;
+  }
+
+  .btn-primary {
+    font-size: 0.95rem;
+    padding: 0.85rem 1.4rem;
+    width: 100%;
+  }
+
+  .hero-main-title {
+    font-size: 2.3rem;
+  }
+
+  .audio-floating-pill .audio-label {
+    display: none;
+  }
+
+  .chapters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cake-3d-wrapper {
+    transform: scale(0.8);
+    margin-top: 0;
+  }
+
+  .polaroids-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .nakhre-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .duel-options-row {
+    flex-direction: column;
+  }
+}
+
+/* Mobile Standard (375px - 767px) */
+@media (max-width: 767px) {
+  .top-nav-controls {
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+
+  .audio-floating-pill {
+    top: 0.75rem;
+    right: 0.75rem;
+    padding: 0.35rem 0.75rem;
+  }
+
+  .section-intro {
+    padding: 4.5rem 1rem 2.5rem;
+  }
+
+  .hero-container {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    text-align: center;
+  }
+
+  .hero-text-content {
+    align-items: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
+    width: 100%;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    width: 100%;
+  }
+
+  .hero-portrait-card {
+    max-width: 320px;
+    order: -1; /* Show photo above copy on mobile for emotional impact */
+  }
+
+  .cinematic-modal-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .audio-actions-row {
+    flex-direction: column;
+  }
+
+  /* Cake Mobile Adjustments */
+  .cake-stage-container {
+    padding: 2.5rem 1rem;
+  }
+
+  .cake-3d-wrapper {
+    transform: scale(0.88);
+  }
+
+  .cake-button-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .cake-button-group .btn-primary,
+  .cake-button-group .btn-secondary {
+    width: 100%;
+  }
+
+  /* Gallery Mobile Adjustments */
+  .gallery-spotlight-card {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
+    gap: 2rem;
+  }
+
+  .polaroids-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .polaroid-card {
+    transform: none !important; /* Flat on mobile for clean touch experience */
+  }
+
+  /* Nakhre Mobile Adjustments */
+  .nakhre-grid {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .nakhre-card {
+    padding: 2rem 1.25rem;
+  }
+
+  /* Lightbox Mobile Adjustments */
+  .lightbox-modal {
+    padding: 1rem;
+  }
+
+  .lightbox-nav-btn {
+    display: none; /* Swipe & tap navigation on mobile */
+  }
+
+  .lightbox-close-btn {
+    top: 5px;
+    right: 5px;
+  }
+
+  .lightbox-img-wrapper {
+    max-height: 60vh;
+  }
+
+  .lightbox-img {
+    max-height: 60vh;
+  }
+
+  /* Stage 3 Mobile Adjustments */
+  .shop-boutique-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .shop-basket-bar {
+    flex-direction: column;
+    padding: 1.25rem 1.5rem;
+    text-align: center;
+  }
+
+  .shop-basket-info {
+    flex-direction: column;
+  }
+
+  .little-things-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .memory-envelope-box {
+    padding: 2.5rem 1.25rem;
+  }
+
+  .memory-letter-body {
+    padding: 1.5rem 1.2rem;
+    font-size: 1.05rem;
+  }
+
+  .envelopes-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .heartfelt-letter-card {
+    padding: 2.75rem 1.5rem;
+  }
+
+  .finale-garden-card {
+    padding: 3.5rem 1.25rem;
+  }
+}
+
+/* Tablet (768px - 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .hero-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .chapters-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .gallery-spotlight-card {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 2rem;
+  }
+
+  .polaroids-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nakhre-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Desktop (1024px - 1439px) */
+@media (min-width: 1024px) {
+  .chapters-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .polaroids-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Wide Screen (1440px+) */
+@media (min-width: 1440px) {
+  .hero-container {
+    max-width: 1280px;
+    gap: 5rem;
+  }
+
+  .chapters-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .polaroids-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

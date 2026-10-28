@@ -1,0 +1,1928 @@
+/* ==========================================================================
+   Sections: Intro, Surprise Interstitial, Birthday Hero, Cake, Gallery, Nakhre & Roadmap
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Intro Screen
+   -------------------------------------------------------------------------- */
+.section-intro {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5rem 1.5rem 3rem;
+  position: relative;
+  z-index: 10;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section-intro.hidden-screen {
+  opacity: 0;
+  pointer-events: none;
+  transform: scale(0.96) translateY(-20px);
+  position: absolute;
+  width: 100%;
+}
+
+.intro-card {
+  max-width: 620px;
+  width: 100%;
+  padding: 3.5rem 2.75rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.intro-ornament {
+  font-size: 2.2rem;
+  filter: drop-shadow(0 4px 10px rgba(229, 169, 180, 0.4));
+  animation: gentle-bob 3s ease-in-out infinite;
+}
+
+@keyframes gentle-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.intro-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 6vw, 3.8rem);
+  font-weight: 700;
+  color: var(--color-plum);
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+}
+
+.intro-subtitle {
+  font-family: var(--font-hand);
+  font-size: 1.75rem;
+  color: var(--color-plum-light);
+  margin-top: -0.5rem;
+}
+
+.intro-copy {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  max-width: 480px;
+  line-height: 1.7;
+}
+
+.intro-hint {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   2. Surprise Interstitial Modal Card
+   -------------------------------------------------------------------------- */
+.surprise-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.surprise-icon-wrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-blush), var(--color-champagne));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  box-shadow: 0 8px 24px rgba(229, 169, 180, 0.5);
+  animation: sparkle-burst 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes sparkle-burst {
+  0% { transform: scale(1) rotate(0deg); }
+  100% { transform: scale(1.1) rotate(8deg); }
+}
+
+.surprise-title {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-plum);
+}
+
+.surprise-desc {
+  font-size: 1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.audio-choice-box {
+  background: rgba(220, 213, 255, 0.35);
+  border: 1px solid rgba(220, 213, 255, 0.6);
+  border-radius: var(--radius-md);
+  padding: 1.2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.audio-choice-cue {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--color-plum-light);
+}
+
+.audio-actions-row {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.audio-actions-row button {
+  flex: 1;
+}
+
+/* --------------------------------------------------------------------------
+   3. Birthday Hero Section
+   -------------------------------------------------------------------------- */
+.section-hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1.5rem 4rem;
+  position: relative;
+  z-index: 10;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.section-hero.active-screen {
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero-container {
+  max-width: var(--max-width);
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.hero-text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.hero-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.8rem, 6vw, 4.4rem);
+  font-weight: 700;
+  color: var(--color-plum);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.hero-secondary-title {
+  font-family: var(--font-hand);
+  font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+  color: var(--color-rose);
+  line-height: 1.3;
+}
+
+.hero-supporting {
+  font-size: 1.15rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+  max-width: 520px;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+}
+
+/* Hero Portrait Frame */
+.hero-portrait-card {
+  position: relative;
+  max-width: 420px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+.portrait-inner-frame {
+  position: relative;
+  border-radius: 200px 200px var(--radius-lg) var(--radius-lg);
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  box-shadow: 
+    0 20px 50px -10px rgba(73, 52, 79, 0.25),
+    0 0 0 1px rgba(220, 213, 255, 0.8),
+    0 0 35px rgba(248, 221, 231, 0.6);
+  background: linear-gradient(180deg, var(--color-blush), var(--color-champagne));
+  aspect-ratio: 3 / 4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hero-portrait-card:hover .portrait-inner-frame {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    0 25px 60px -10px rgba(73, 52, 79, 0.3),
+    0 0 45px rgba(248, 221, 231, 0.8);
+}
+
+.portrait-placeholder-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 0.6s ease;
+}
+
+.hero-portrait-card:hover .portrait-placeholder-art {
+  transform: scale(1.03);
+}
+
+.portrait-caption-pill {
+  position: absolute;
+  bottom: 1.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-full);
+  font-family: var(--font-hand);
+  font-size: 1.3rem;
+  color: var(--color-plum);
+  border: 1px solid rgba(229, 169, 180, 0.6);
+  box-shadow: 0 4px 15px rgba(73, 52, 79, 0.1);
+}
+
+.portrait-decorative-corner {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 2px solid var(--color-gold);
+  z-index: 5;
+  pointer-events: none;
+}
+
+.corner-tl {
+  top: -8px;
+  left: -8px;
+  border-right: none;
+  border-bottom: none;
+  border-radius: 8px 0 0 0;
+}
+
+.corner-br {
+  bottom: -8px;
+  right: -8px;
+  border-left: none;
+  border-top: none;
+  border-radius: 0 0 8px 0;
+}
+
+/* --------------------------------------------------------------------------
+   4. Floating Chapter Navigation Menu
+   -------------------------------------------------------------------------- */
+.chapter-nav-bar {
+  position: sticky;
+  top: 1.25rem;
+  z-index: 95;
+  display: flex;
+  justify-content: center;
+  padding: 0 1rem;
+  margin-bottom: 2rem;
+  pointer-events: none;
+}
+
+.chapter-nav-pill {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.4rem 0.6rem;
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(220, 213, 255, 0.7);
+  box-shadow: 0 8px 30px rgba(73, 52, 79, 0.1);
+  max-width: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.chapter-nav-pill::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-item-btn {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-full);
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.nav-item-btn:hover,
+.nav-item-btn.active {
+  color: var(--color-plum);
+  background: rgba(248, 221, 231, 0.7);
+  box-shadow: 0 2px 8px rgba(73, 52, 79, 0.08);
+}
+
+/* --------------------------------------------------------------------------
+   5. CHAPTER 01: THE MIDNIGHT BIRTHDAY CAKE SECTION
+   -------------------------------------------------------------------------- */
+.section-cake {
+  padding: 6rem 1.5rem 5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.cake-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 700;
+  color: var(--color-plum);
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.cake-stage-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.5rem;
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--bg-glass-border);
+  box-shadow: var(--bg-glass-shadow);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.cake-stage-backdrop-glow {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(248, 221, 231, 0.6) 0%, rgba(243, 226, 197, 0.3) 50%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* 3D Tiered Cake Visual */
+.cake-3d-wrapper {
+  position: relative;
+  width: 320px;
+  height: 330px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  z-index: 2;
+  margin-top: 2rem;
+}
+
+/* Candles Row */
+.candles-halo {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  width: 220px;
+  position: absolute;
+  top: 15px;
+  z-index: 10;
+  flex-wrap: wrap;
+}
+
+.candle-unit {
+  position: relative;
+  width: 8px;
+  height: 36px;
+  background: repeating-linear-gradient(45deg, #FFF9F5, #FFF9F5 4px, #E5A9B4 4px, #E5A9B4 8px);
+  border-radius: 3px 3px 0 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.candle-unit:hover {
+  transform: scale(1.15);
+}
+
+.candle-wick {
+  position: absolute;
+  top: -6px;
+  left: 3px;
+  width: 2px;
+  height: 6px;
+  background: #49344F;
+  border-radius: 1px;
+}
+
+.candle-flame {
+  position: absolute;
+  top: -18px;
+  left: -2px;
+  width: 12px;
+  height: 18px;
+  background: radial-gradient(ellipse at bottom, #FFDD53 0%, #FF9E2C 60%, transparent 80%);
+  border-radius: 50% 50% 20% 20%;
+  filter: drop-shadow(0 0 8px #FFC107) drop-shadow(0 0 14px #FF7043);
+  animation: flicker 0.6s infinite alternate ease-in-out;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+@keyframes flicker {
+  0% { transform: scale(1) rotate(-1deg); }
+  50% { transform: scale(1.1, 0.95) rotate(2deg); }
+  100% { transform: scale(0.95, 1.05) rotate(-2deg); }
+}
+
+.candle-unit.blown .candle-flame {
+  opacity: 0;
+  transform: scale(0.2) translateY(-10px);
+  pointer-events: none;
+}
+
+.candle-smoke {
+  position: absolute;
+  top: -24px;
+  left: 1px;
+  width: 6px;
+  height: 14px;
+  background: rgba(180, 180, 180, 0.6);
+  border-radius: 50%;
+  filter: blur(2px);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.candle-unit.blown .candle-smoke {
+  animation: smoke-drift 1s forwards ease-out;
+}
+
+@keyframes smoke-drift {
+  0% { opacity: 0.8; transform: translateY(0) scale(1); }
+  100% { opacity: 0; transform: translateY(-24px) scale(2.5); }
+}
+
+/* Cake Tiers */
+.cake-tier {
+  position: relative;
+  border-radius: 14px 14px 18px 18px;
+  box-shadow: 
+    inset 0 4px 8px rgba(255, 255, 255, 0.8),
+    inset 0 -6px 12px rgba(73, 52, 79, 0.15),
+    0 8px 20px rgba(73, 52, 79, 0.12);
+}
+
+.tier-top {
+  width: 170px;
+  height: 65px;
+  background: linear-gradient(180deg, #FFF9F5 0%, #F8DDE7 50%, #F5CCD8 100%);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  z-index: 5;
+  display: flex;
+  justify-content: center;
+}
+
+.tier-frosting-swirls {
+  position: absolute;
+  top: -4px;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 0 10px;
+}
+
+.swirl-piping {
+  font-size: 1rem;
+  filter: drop-shadow(0 2px 4px rgba(229, 169, 180, 0.6));
+}
+
+.tier-mid {
+  width: 230px;
+  height: 75px;
+  background: linear-gradient(180deg, #F8DDE7 0%, #E8B4C0 50%, #D89AA8 100%);
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  margin-top: -12px;
+  z-index: 4;
+}
+
+.tier-drip-strip {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 18px;
+  background: radial-gradient(circle at 10px 0, #FFFFFF 10px, transparent 11px) repeat-x;
+  background-size: 20px 20px;
+  opacity: 0.85;
+}
+
+.tier-base {
+  width: 285px;
+  height: 85px;
+  background: linear-gradient(180deg, #FFF9F5 0%, #F3E2C5 60%, #E2CEAD 100%);
+  border: 2px solid rgba(255, 255, 255, 0.9);
+  margin-top: -14px;
+  z-index: 3;
+}
+
+.cake-platter {
+  width: 330px;
+  height: 22px;
+  background: linear-gradient(90deg, #E2CEAD, #FFF9F5, #E8C170, #FFF9F5, #E2CEAD);
+  border-radius: 50%;
+  margin-top: -10px;
+  z-index: 2;
+  box-shadow: 0 14px 28px rgba(73, 52, 79, 0.25);
+  border: 2px solid #FFFFFF;
+}
+
+/* Cake Cutting Knife Overlay */
+.cake-knife {
+  position: absolute;
+  top: 10px;
+  right: -50px;
+  font-size: 3.5rem;
+  transform: rotate(-35deg);
+  cursor: pointer;
+  z-index: 20;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.2));
+}
+
+.cake-knife:hover {
+  transform: rotate(-15deg) scale(1.1);
+}
+
+.cake-slice-cutout {
+  position: absolute;
+  right: 40px;
+  bottom: 30px;
+  font-size: 3rem;
+  z-index: 15;
+  opacity: 0;
+  transform: translateY(20px) scale(0.6);
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  pointer-events: none;
+}
+
+.cake-slice-cutout.served {
+  opacity: 1;
+  transform: translate(60px, -20px) scale(1.2) rotate(15deg);
+}
+
+/* Cake Interactive Controls Row */
+.cake-controls-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  z-index: 2;
+  width: 100%;
+  max-width: 580px;
+}
+
+.cake-status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.6rem 1.4rem;
+  border-radius: var(--radius-full);
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--color-plum);
+  border: 1px solid rgba(220, 213, 255, 0.8);
+  box-shadow: 0 4px 15px rgba(73, 52, 79, 0.08);
+}
+
+.cake-button-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Wish Reveal Celebration Banner */
+.cake-wish-banner {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(248, 221, 231, 0.9));
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: 2rem 2.5rem;
+  text-align: center;
+  box-shadow: 0 15px 40px rgba(73, 52, 79, 0.15);
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: pop-in 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.cake-wish-banner.revealed {
+  display: flex;
+}
+
+@keyframes pop-in {
+  0% { transform: scale(0.85); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.cake-wish-text {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  color: var(--color-plum);
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.cake-wish-sub {
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  color: var(--color-rose);
+}
+
+/* --------------------------------------------------------------------------
+   6. CHAPTER 02: EDITORIAL PHOTO STORY SECTION
+   -------------------------------------------------------------------------- */
+.section-gallery {
+  padding: 6rem 1.5rem 5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.gallery-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Spotlight Hero Portrait Feature Card */
+.gallery-spotlight-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid var(--bg-glass-border);
+  box-shadow: var(--bg-glass-shadow);
+  border-radius: var(--radius-xl);
+  padding: 3rem;
+  margin-bottom: 4rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight-image-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(73, 52, 79, 0.2);
+  border: 4px solid #ffffff;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+}
+
+.spotlight-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.spotlight-image-frame:hover .spotlight-img {
+  transform: scale(1.04);
+}
+
+.spotlight-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.spotlight-title {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--color-plum);
+  font-weight: 700;
+}
+
+.spotlight-quote {
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  color: var(--color-rose);
+  line-height: 1.4;
+}
+
+.spotlight-caption {
+  font-size: 1.05rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* Polaroid Scrapbook Grid */
+.polaroids-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 4.5rem;
+}
+
+.polaroid-card {
+  background: #ffffff;
+  padding: 1rem 1rem 1.6rem;
+  border-radius: 4px;
+  box-shadow: 0 12px 30px rgba(73, 52, 79, 0.12), 0 2px 6px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+  cursor: pointer;
+}
+
+/* Subtle organic tilt rotations */
+.polaroid-card:nth-child(4n+1) { transform: rotate(-2deg); }
+.polaroid-card:nth-child(4n+2) { transform: rotate(1.5deg); }
+.polaroid-card:nth-child(4n+3) { transform: rotate(-1.5deg); }
+.polaroid-card:nth-child(4n+4) { transform: rotate(2.5deg); }
+
+.polaroid-card:hover {
+  transform: rotate(0deg) translateY(-8px) scale(1.02);
+  box-shadow: 0 22px 45px rgba(73, 52, 79, 0.22);
+  z-index: 5;
+}
+
+.polaroid-tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90px;
+  height: 24px;
+  background: rgba(243, 226, 197, 0.8);
+  border: 1px dashed rgba(232, 193, 112, 0.6);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  border-radius: 2px;
+  z-index: 3;
+}
+
+.polaroid-img-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: #f0f0f0;
+  border-radius: 2px;
+}
+
+.polaroid-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.polaroid-card:hover .polaroid-img {
+  transform: scale(1.04);
+}
+
+.polaroid-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.2rem;
+}
+
+.polaroid-theme-tag {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-plum-light);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.polaroid-caption-text {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--color-plum);
+  line-height: 1.3;
+  padding: 0 0.2rem;
+}
+
+/* Horizontal Filmstrip Photo Carousel */
+.carousel-wrapper {
+  margin-top: 3rem;
+  background: var(--bg-glass-card);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-xl);
+  padding: 2rem;
+  box-shadow: var(--bg-glass-shadow);
+}
+
+.carousel-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.carousel-heading {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--color-plum);
+}
+
+.carousel-controls {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.carousel-arrow-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 1px solid rgba(73, 52, 79, 0.15);
+  color: var(--color-plum);
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.carousel-arrow-btn:hover {
+  background: var(--color-blush);
+  transform: scale(1.05);
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding-bottom: 1rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(229, 169, 180, 0.6) transparent;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 6px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: rgba(229, 169, 180, 0.6);
+  border-radius: 10px;
+}
+
+.carousel-item-card {
+  flex: 0 0 240px;
+  scroll-snap-align: start;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(73, 52, 79, 0.1);
+  cursor: pointer;
+  transition: transform var(--transition-fast);
+}
+
+.carousel-item-card:hover {
+  transform: translateY(-4px);
+}
+
+.carousel-item-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.carousel-item-caption {
+  padding: 0.75rem;
+  font-family: var(--font-hand);
+  font-size: 1.1rem;
+  color: var(--color-plum);
+  text-align: center;
+}
+
+/* Fullscreen Lightbox Modal */
+.lightbox-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 35, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-modal.active {
+  display: flex;
+  opacity: 1;
+}
+
+.lightbox-container {
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  gap: 1rem;
+}
+
+.lightbox-img-wrapper {
+  max-height: 72vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-img {
+  max-width: 100%;
+  max-height: 72vh;
+  object-fit: contain;
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  border: 3px solid rgba(255, 255, 255, 0.9);
+}
+
+.lightbox-caption-bar {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: var(--radius-full);
+  padding: 0.6rem 1.6rem;
+  text-align: center;
+  color: var(--color-plum);
+  font-family: var(--font-hand);
+  font-size: 1.4rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  max-width: 90%;
+}
+
+.lightbox-close-btn {
+  position: absolute;
+  top: -45px;
+  right: -10px;
+  background: rgba(255, 255, 255, 0.85);
+  border: none;
+  color: var(--color-plum);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--transition-fast);
+}
+
+.lightbox-close-btn:hover {
+  transform: scale(1.1);
+  background: #ffffff;
+}
+
+.lightbox-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.8);
+  border: none;
+  color: var(--color-plum);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.lightbox-nav-btn:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.lightbox-prev { left: -60px; }
+.lightbox-next { right: -60px; }
+
+/* --------------------------------------------------------------------------
+   7. CHAPTER 03: RADHA KE CUTE NAKHRE 🤭 SECTION
+   -------------------------------------------------------------------------- */
+.section-nakhre {
+  padding: 6rem 1.5rem 5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.nakhre-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nakhre-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.nakhre-card {
+  padding: 3rem 2.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+  border-radius: var(--radius-xl);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--bg-glass-shadow);
+}
+
+.nakhre-card-icon {
+  font-size: 2.8rem;
+  filter: drop-shadow(0 4px 10px rgba(229, 169, 180, 0.5));
+}
+
+.nakhre-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.65rem;
+  color: var(--color-plum);
+  font-weight: 700;
+}
+
+.nakhre-card-desc {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* Interaction 1: Drama Meter */
+.meter-gauge-track {
+  width: 100%;
+  height: 22px;
+  background: rgba(73, 52, 79, 0.08);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid rgba(73, 52, 79, 0.1);
+  position: relative;
+}
+
+.meter-gauge-fill {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #A8D5BA, #F3E2C5, #E5A9B4, #DCD5FF);
+  border-radius: var(--radius-full);
+  transition: width 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.meter-status-display {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--color-plum);
+  min-height: 1.8rem;
+}
+
+.meter-fun-line {
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--color-rose);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  min-height: 2.2rem;
+  line-height: 1.3;
+}
+
+.meter-fun-line.visible {
+  opacity: 1;
+}
+
+/* Interaction 2: Improved Surprise Compliment Generator */
+.compliment-box {
+  background: #ffffff;
+  border: 1px solid rgba(229, 169, 180, 0.6);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.75rem;
+  width: 100%;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(73, 52, 79, 0.06);
+  position: relative;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.compliment-quote-mark {
+  font-family: var(--font-serif);
+  font-size: 2.2rem;
+  color: var(--color-rose-gold);
+  line-height: 1;
+  margin-bottom: -0.5rem;
+  opacity: 0.7;
+}
+
+.compliment-text {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-plum);
+  line-height: 1.6;
+  font-style: italic;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  max-width: 90%;
+}
+
+/* --------------------------------------------------------------------------
+   8. Make a Wish Modal Dialog
+   -------------------------------------------------------------------------- */
+.wish-modal-card {
+  max-width: 540px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: var(--radius-xl);
+  padding: 2.5rem;
+  box-shadow: 0 25px 60px rgba(73, 52, 79, 0.35);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  position: relative;
+}
+
+.wish-options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wish-option-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.85rem 1.2rem;
+  background: var(--color-ivory);
+  border: 1px solid rgba(220, 213, 255, 0.7);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+}
+
+.wish-option-btn:hover {
+  background: var(--color-blush);
+  border-color: var(--color-rose);
+  transform: translateX(4px);
+}
+
+.wish-opt-icon {
+  font-size: 1.4rem;
+}
+
+.wish-opt-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.wish-opt-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-plum);
+}
+
+.wish-opt-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.wish-custom-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(73, 52, 79, 0.2);
+  font-family: var(--font-sans);
+  font-size: 0.95rem;
+}
+
+/* --------------------------------------------------------------------------
+   9. Chapter Sneak Peek Section & Footer
+   -------------------------------------------------------------------------- */
+.section-chapters {
+  padding: 6rem 1.5rem 5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.chapters-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.chapters-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  color: var(--color-plum);
+  line-height: 1.2;
+}
+
+.chapters-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+}
+
+.chapters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.75rem;
+}
+
+.chapter-card {
+  padding: 2rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--bg-glass-border);
+  background: var(--bg-glass-card);
+  position: relative;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+  overflow: hidden;
+}
+
+.chapter-card:hover {
+  transform: translateY(-5px);
+  background: var(--bg-glass-card-hover);
+  box-shadow: 0 20px 40px -10px rgba(73, 52, 79, 0.15);
+  border-color: rgba(229, 169, 180, 0.8);
+}
+
+.chapter-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.chapter-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--color-plum-light);
+  text-transform: uppercase;
+}
+
+.chapter-lock-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--color-plum);
+  background: rgba(243, 226, 197, 0.6);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-full);
+}
+
+.chapter-icon {
+  font-size: 2.2rem;
+  margin: 0.25rem 0;
+}
+
+.chapter-name {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-plum);
+  line-height: 1.3;
+}
+
+.chapter-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+.chapter-footer-cue {
+  font-size: 0.78rem;
+  color: var(--text-light);
+  font-style: italic;
+  border-top: 1px dashed rgba(73, 52, 79, 0.12);
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+}
+
+.footer-wrapper {
+  background: rgba(73, 52, 79, 0.05);
+  border-top: 1px solid rgba(220, 213, 255, 0.4);
+  padding: 4rem 1.5rem 3rem;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.footer-content {
+  max-width: 680px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.footer-signature {
+  font-family: var(--font-hand);
+  font-size: 1.8rem;
+  color: var(--color-plum);
+}
+
+.footer-meta {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.audio-roadmap-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.75);
+  padding: 0.5rem 1.2rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  color: var(--color-plum-light);
+  border: 1px solid rgba(73, 52, 79, 0.1);
+}
+
+/* ==========================================================================
+   STAGE 3 SECTIONS
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   10. CHAPTER 04: RADHE'S LITTLE HAPPINESS SHOP 🍫🍦
+   -------------------------------------------------------------------------- */
+.section-shop {
+  padding: 6rem 1.5rem 5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.shop-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.shop-boutique-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.shop-item-card {
+  background: #ffffff;
+  border: 1px solid rgba(220, 213, 255, 0.7);
+  border-radius: var(--radius-xl);
+  padding: 2.2rem 1.8rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  box-shadow: 0 10px 30px rgba(73, 52, 79, 0.07);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.shop-item-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(73, 52, 79, 0.14);
+  border-color: var(--color-rose);
+}
+
+.shop-item-emoji {
+  font-size: 3.5rem;
+  filter: drop-shadow(0 6px 12px rgba(229, 169, 180, 0.4));
+  animation: float-sweet 3s ease-in-out infinite alternate;
+}
+
+@keyframes float-sweet {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+.shop-item-name {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-plum);
+  font-weight: 700;
+}
+
+.shop-item-desc {
+  font-size: 0.92rem;
+  color: var(--text-muted);
+  line-height: 1.5;
+  flex-grow: 1;
+}
+
+.shop-btn-add {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.4rem;
+  background: linear-gradient(135deg, rgba(248, 221, 231, 0.8), rgba(243, 226, 197, 0.8));
+  border: 1px solid rgba(229, 169, 180, 0.8);
+  border-radius: var(--radius-full);
+  color: var(--color-plum);
+  font-weight: 600;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  width: 100%;
+}
+
+.shop-btn-add:hover {
+  background: linear-gradient(135deg, var(--color-rose), var(--color-gold));
+  color: #ffffff;
+  transform: scale(1.02);
+}
+
+/* Shop Basket & Checkout Bar */
+.shop-basket-bar {
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-xl);
+  padding: 1.75rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  box-shadow: var(--bg-glass-shadow);
+}
+
+.shop-basket-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shop-basket-icon {
+  font-size: 2.2rem;
+}
+
+.shop-basket-title {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--color-plum);
+}
+
+.shop-basket-sub {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: var(--color-rose);
+}
+
+.shop-order-banner {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(248, 221, 231, 0.9));
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem 2rem;
+  text-align: center;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 1.5rem;
+  animation: pop-in 0.5s ease;
+}
+
+.shop-order-banner.active {
+  display: flex;
+}
+
+/* --------------------------------------------------------------------------
+   11. CHAPTER 05: LITTLE THINGS THAT MAKE YOU, YOU 🌸
+   -------------------------------------------------------------------------- */
+.section-little-things {
+  padding: 6rem 1.5rem 5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.little-things-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.little-things-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.little-thing-card {
+  background: var(--bg-glass-card);
+  backdrop-filter: blur(14px);
+  border: 1px solid var(--bg-glass-border);
+  border-radius: var(--radius-lg);
+  padding: 2.2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  position: relative;
+  box-shadow: var(--bg-glass-shadow);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.little-thing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(73, 52, 79, 0.12);
+  border-color: rgba(229, 169, 180, 0.8);
+}
+
+.little-thing-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.little-thing-icon {
+  font-size: 2rem;
+}
+
+.little-thing-highlight {
+  font-family: var(--font-hand);
+  font-size: 1.25rem;
+  color: var(--color-rose);
+}
+
+.little-thing-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  color: var(--color-plum);
+  font-weight: 700;
+}
+
+.little-thing-text {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+}
+
+/* --------------------------------------------------------------------------
+   12. CHAPTER 06: A MEMORY I STILL REMEMBER 💭
+   -------------------------------------------------------------------------- */
+.section-memory {
+  padding: 6rem 1.5rem 5rem;
+  max-width: 820px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.memory-envelope-box {
+  background: #FFFDF9;
+  border: 2px solid rgba(232, 193, 112, 0.5);
+  border-radius: var(--radius-xl);
+  padding: 3.5rem 3rem;
+  box-shadow: 0 20px 50px rgba(73, 52, 79, 0.12);
+  position: relative;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+}
+
+.memory-seal-wrapper {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.memory-letter-sheet {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.6s ease;
+  width: 100%;
+}
+
+.memory-letter-sheet.open {
+  max-height: 800px;
+  opacity: 1;
+}
+
+.memory-letter-body {
+  background: rgba(248, 221, 231, 0.25);
+  border-left: 3px solid var(--color-rose);
+  padding: 2rem 2rem;
+  border-radius: 4px;
+  text-align: left;
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-plum);
+  line-height: 1.85;
+  white-space: pre-line;
+  margin-top: 1rem;
+}
+
+/* --------------------------------------------------------------------------
+   13. CHAPTER 07: SECRET SURPRISE ENVELOPES 💌
+   -------------------------------------------------------------------------- */
+.section-envelopes {
+  padding: 6rem 1.5rem 5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.envelopes-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 3.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.envelopes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.envelope-card {
+  background: #ffffff;
+  border: 1px solid rgba(220, 213, 255, 0.8);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: 0 12px 30px rgba(73, 52, 79, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  position: relative;
+  text-align: center;
+}
+
+.envelope-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 45px rgba(73, 52, 79, 0.15);
+  border-color: var(--color-rose);
+}
+
+.envelope-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-plum);
+  font-weight: 700;
+}
+
+.envelope-revealed-letter {
+  display: none;
+  background: var(--color-ivory);
+  border: 1px dashed rgba(229, 169, 180, 0.8);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  font-family: var(--font-hand);
+  font-size: 1.35rem;
+  color: var(--color-plum);
+  line-height: 1.4;
+  width: 100%;
+  animation: pop-in 0.4s ease;
+}
+
+.envelope-card.opened .envelope-revealed-letter {
+  display: block;
+}
+
+.envelope-card.opened .envelope-card-hint {
+  display: none;
+}
+
+.envelope-card-hint {
+  font-size: 0.8rem;
+  color: var(--color-rose);
+  font-weight: 600;
+}
+
+/* --------------------------------------------------------------------------
+   14. CHAPTER 08: THE HEARTFELT BIRTHDAY LETTER ❤️
+   -------------------------------------------------------------------------- */
+.section-letter {
+  padding: 6rem 1.5rem 5rem;
+  max-width: 780px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.heartfelt-letter-card {
+  background: #FFFDF9;
+  border: 2px solid rgba(232, 193, 112, 0.5);
+  border-radius: var(--radius-xl);
+  padding: 4rem 3.5rem;
+  box-shadow: 0 25px 60px rgba(73, 52, 79, 0.14);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.letter-salutation {
+  font-family: var(--font-hand);
+  font-size: 2.2rem;
+  color: var(--color-plum);
+  font-weight: 700;
+}
+
+.letter-paragraph {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--color-plum);
+  line-height: 1.85;
+}
+
+.letter-signoff {
+  font-family: var(--font-hand);
+  font-size: 2rem;
+  color: var(--color-rose);
+  text-align: right;
+  margin-top: 1.5rem;
+}
+
+/* --------------------------------------------------------------------------
+   15. CHAPTER 09: MAGICAL FINALE ✨
+   -------------------------------------------------------------------------- */
+.section-finale {
+  padding: 7rem 1.5rem 6rem;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  text-align: center;
+}
+
+.finale-garden-card {
+  background: linear-gradient(180deg, rgba(73, 52, 79, 0.95), rgba(45, 30, 50, 0.98));
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-xl);
+  padding: 4.5rem 3rem;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.finale-twilight-portrait {
+  width: 180px;
+  height: 240px;
+  border-radius: 90px;
+  overflow: hidden;
+  border: 4px solid var(--color-gold);
+  box-shadow: 0 0 40px rgba(232, 193, 112, 0.4);
+}
+
+.finale-twilight-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.finale-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 5vw, 3.8rem);
+  color: var(--color-champagne);
+  line-height: 1.2;
+}
+
+.finale-quote {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.8;
+  color: #FFF9F5;
+  max-width: 620px;
+  white-space: pre-line;
+}
+
+.finale-buttons-row {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.finale-credit {
+  font-family: var(--font-hand);
+  font-size: 1.5rem;
+  color: var(--color-rose-gold);
+  margin-top: 1rem;
+}

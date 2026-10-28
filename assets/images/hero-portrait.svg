@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 750" width="100%" height="100%">
+  <defs>
+    <!-- Background Gradients -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDF2F5" />
+      <stop offset="50%" stop-color="#F6E7F2" />
+      <stop offset="100%" stop-color="#EBE3FA" />
+    </linearGradient>
+
+    <radialGradient id="haloGlow" cx="50%" cy="40%" r="50%">
+      <stop offset="0%" stop-color="#FFF9F5" stop-opacity="0.9" />
+      <stop offset="60%" stop-color="#F8DDE7" stop-opacity="0.5" />
+      <stop offset="100%" stop-color="#DCD5FF" stop-opacity="0" />
+    </radialGradient>
+
+    <linearGradient id="goldAccent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E2C5" />
+      <stop offset="50%" stop-color="#E5C158" />
+      <stop offset="100%" stop-color="#C99E38" />
+    </linearGradient>
+
+    <linearGradient id="silhouetteGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#6E5375" />
+      <stop offset="100%" stop-color="#49344F" />
+    </linearGradient>
+  </defs>
+
+  <!-- Canvas Background -->
+  <rect width="600" height="750" fill="url(#bgGrad)" rx="24" />
+
+  <!-- Soft Ambient Glow -->
+  <circle cx="300" cy="330" r="240" fill="url(#haloGlow)" />
+
+  <!-- Decorative Botanical Floral Ring Frame -->
+  <circle cx="300" cy="350" r="190" fill="none" stroke="#DCD5FF" stroke-width="1.5" stroke-dasharray="6,6" opacity="0.8" />
+  <circle cx="300" cy="350" r="202" fill="none" stroke="#E5A9B4" stroke-width="1" opacity="0.5" />
+
+  <!-- Floral Garland Elements -->
+  <g transform="translate(300, 150)">
+    <!-- Top Floral Crown -->
+    <path d="M-40,-10 C-20,-25 20,-25 40,-10 C20,-5 -20,-5 -40,-10 Z" fill="url(#goldAccent)" opacity="0.8" />
+    <circle cx="0" cy="-18" r="6" fill="#E5A9B4" />
+    <circle cx="-25" cy="-12" r="4.5" fill="#A8D5BA" />
+    <circle cx="25" cy="-12" r="4.5" fill="#A8D5BA" />
+  </g>
+
+  <!-- Editorial Silhouette of Radha -->
+  <g transform="translate(190, 200)">
+    <!-- Graceful hair & profile silhouette -->
+    <path d="M 110,60 
+             C 140,60 170,85 180,120 
+             C 192,165 185,210 175,250 
+             C 170,270 190,290 195,310 
+             C 200,330 190,360 170,390 
+             C 140,410 70,410 40,390 
+             C 25,360 20,330 25,300 
+             C 30,260 20,230 15,190 
+             C 10,140 40,75 110,60 Z" 
+          fill="url(#silhouetteGrad)" opacity="0.88" />
+    
+    <!-- Delicate floral pins in hair -->
+    <circle cx="95" cy="110" r="7" fill="#F8DDE7" />
+    <circle cx="115" cy="100" r="5" fill="#F3E2C5" />
+    <circle cx="80" cy="125" r="6" fill="#E8C170" />
+    <circle cx="70" cy="145" r="4.5" fill="#F8DDE7" />
+  </g>
+
+  <!-- Sparkles & Stars -->
+  <g fill="url(#goldAccent)">
+    <!-- Sparkle 1 -->
+    <path d="M 120,180 Q 120,195 105,195 Q 120,195 120,210 Q 120,195 135,195 Q 120,195 120,180 Z" />
+    <!-- Sparkle 2 -->
+    <path d="M 480,220 Q 480,232 468,232 Q 480,232 480,244 Q 480,232 492,232 Q 480,232 480,220 Z" />
+    <!-- Sparkle 3 -->
+    <path d="M 160,510 Q 160,520 150,520 Q 160,520 160,530 Q 160,520 170,520 Q 160,520 160,510 Z" />
+    <!-- Sparkle 4 -->
+    <path d="M 450,470 Q 450,482 438,482 Q 450,482 450,494 Q 450,482 462,482 Q 450,482 450,470 Z" />
+  </g>
+
+  <!-- Floating Rose Petals -->
+  <g opacity="0.75">
+    <ellipse cx="140" cy="340" rx="14" ry="7" transform="rotate(-30 140 340)" fill="#F8DDE7" />
+    <ellipse cx="460" cy="380" rx="12" ry="6" transform="rotate(40 460 380)" fill="#E5A9B4" />
+    <ellipse cx="220" cy="150" rx="10" ry="5" transform="rotate(15 220 150)" fill="#F8DDE7" />
+    <ellipse cx="380" cy="560" rx="15" ry="8" transform="rotate(-20 380 560)" fill="#F8DDE7" />
+  </g>
+
+  <!-- Editorial Text Label -->
+  <text x="300" y="650" text-anchor="middle" font-family="'Playfair Display', Georgia, serif" font-size="24" font-weight="700" fill="#49344F" letter-spacing="1.5">
+    RADHA
+  </text>
+  <text x="300" y="680" text-anchor="middle" font-family="'Plus Jakarta Sans', sans-serif" font-size="13" font-weight="600" fill="#735D7A" letter-spacing="3">
+    SWEET 18 • OCT 29, 2008
+  </text>
+</svg>

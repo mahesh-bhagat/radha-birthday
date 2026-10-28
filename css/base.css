@@ -1,0 +1,79 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-ivory);
+  background-image: 
+    radial-gradient(at 10% 15%, rgba(248, 221, 231, 0.6) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(220, 213, 255, 0.55) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(255, 249, 245, 0.8) 0px, transparent 65%),
+    radial-gradient(at 80% 85%, rgba(243, 226, 197, 0.45) 0px, transparent 50%),
+    radial-gradient(at 20% 90%, rgba(220, 213, 255, 0.4) 0px, transparent 50%);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Accessibility: Focus Indicators */
+:focus-visible {
+  outline: 2px solid var(--color-plum);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Accessibility: Skip Links */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--color-plum);
+  color: var(--color-ivory);
+  padding: 0.6rem 1.2rem;
+  z-index: 9999;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Base Canvas Background Layer */
+#ambient-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Accessibility & Reduced Motion Preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  #ambient-canvas {
+    display: none !important;
+  }
+}

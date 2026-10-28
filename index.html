@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday Payal ✦ | Radha's Little Universe</title>
+  <meta name="description" content="A dreamy, interactive birthday universe created with warmth and admiration for Payal Patil (Radha) on her milestone 18th Birthday.">
+
+  <!-- OpenGraph Metadata -->
+  <meta property="og:title" content="Happy Birthday Payal ✦ | Radha's Little Universe">
+  <meta property="og:description" content="A little magic. A lot of smiles. All for you. Celebrating Radha's 18th Birthday.">
+  <meta property="og:type" content="website">
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&family=Playfair+Display:ital,wght@0,400..800;1,400..800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Modular Stylesheets (Relative Paths for GitHub Pages Compatibility) -->
+  <link rel="stylesheet" href="./css/tokens.css">
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/components.css">
+  <link rel="stylesheet" href="./css/sections.css">
+  <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+
+  <!-- Accessible Skip Navigation -->
+  <a href="#hero-section" class="skip-link">Skip to Birthday Hero</a>
+
+  <!-- Ambient Visual Canvases -->
+  <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+  <canvas id="confetti-canvas" aria-hidden="true"></canvas>
+
+  <!-- Top Accessibility Navigation Controls -->
+  <header class="top-nav-controls" role="toolbar" aria-label="Quick site controls">
+    <button id="btn-toggle-motion" class="control-pill" aria-label="Toggle background particle motion">⏸ Pause Motion</button>
+    <a href="#hero-section" id="btn-skip-intro" class="control-pill" aria-label="Skip introduction animation">⚡ Skip Intro</a>
+  </header>
+
+  <!-- Floating Intelligent Audio Controller Pill -->
+  <aside class="audio-floating-pill" id="audio-floating-pill" aria-label="Background music controls">
+    <span class="audio-pulse-indicator" id="audio-indicator" aria-hidden="true"></span>
+    <div style="display: flex; flex-direction: column; text-align: left;">
+      <span class="audio-label" id="audio-label">Ambient Ready</span>
+      <span class="audio-track-sub" id="audio-track-sub">Tere Pyaar Mein</span>
+    </div>
+    <input type="range" id="audio-volume-slider" class="audio-volume-slider" min="0" max="1" step="0.05" value="0.8" aria-label="Music volume" title="Volume slider">
+    <button class="audio-btn" id="btn-audio-mute" aria-label="Toggle mute" title="Mute/unmute" style="width:28px;height:28px;font-size:0.75rem;">🔊</button>
+    <button class="audio-btn" id="btn-audio-toggle" aria-label="Toggle music play or pause" title="Music controller">🎵</button>
+  </aside>
+
+  <!-- ========================================================================
+       STAGE 1 - SCREEN 1: INVITATION / INTRO
+       ======================================================================== -->
+  <main>
+    <section id="intro-screen" class="section-intro" aria-label="Welcome screen">
+      <div class="intro-card glass-panel">
+        <div class="intro-ornament" aria-hidden="true">🌷</div>
+        <div class="eyebrow">A LITTLE SOMETHING FOR YOU</div>
+        <h1 class="intro-title">Hey, Radhe! 🌷</h1>
+        <p class="intro-subtitle">A special day, a quiet celebration...</p>
+        <p class="intro-copy">
+          Aaj ka din thoda extra special hai… aur yeh chhotasa surprise sirf tere liye.
+        </p>
+        <button id="btn-unlock-surprise" class="btn-primary" aria-haspopup="dialog" aria-controls="surprise-modal">
+          <span>Radhe, ek chhotasa surprise hai! 🎁</span>
+        </button>
+        <span class="intro-hint">Tap above to begin • October 29</span>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         STAGE 1 - SCREEN 2: SURPRISE UNLOCK INTERSTITIAL MODAL
+         ======================================================================== -->
+    <div id="surprise-modal" class="cinematic-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <div class="cinematic-modal-card">
+        <div class="surprise-content">
+          <div class="surprise-icon-wrapper" aria-hidden="true">✨</div>
+          <h2 id="modal-title" class="surprise-title">Surprise unlocked! ✨</h2>
+          <p class="surprise-desc">
+            Welcome to your own corner of joy, smiles, and warm memories.
+          </p>
+
+          <div class="audio-choice-box">
+            <span class="audio-choice-cue">🎵 Celebration Vibe: <em>Tere Pyaar Mein</em></span>
+            <div class="audio-actions-row">
+              <button id="btn-modal-with-music" class="btn-primary" style="font-size: 0.9rem; padding: 0.75rem 1rem;">
+                With Music 🎶
+              </button>
+              <button id="btn-modal-silently" class="btn-secondary" style="font-size: 0.9rem; padding: 0.75rem 1rem;">
+                Continue Silently 🔕
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ========================================================================
+         SCREEN 3: BIRTHDAY HERO
+         ======================================================================== -->
+    <section id="hero-section" class="section-hero" aria-label="Birthday celebration hero">
+      <div class="hero-container">
+        
+        <!-- Hero Copy -->
+        <div class="hero-text-content">
+          <div class="badge-milestone">
+            <span>🌸</span>
+            <span>29th Oct 2008 ➔ Sweet 18 Milestone ✨</span>
+          </div>
+          
+          <h2 class="hero-main-title">Happy Birthday, Payal ✨</h2>
+          
+          <div class="hero-secondary-title">
+            "For the world, Payal. For me, Radha."
+          </div>
+          
+          <p class="hero-supporting">
+            A little magic. A lot of smiles. All for you. Celebrating 18 wonderful years of warmth, laughter, and your infectious sparkle.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#section-cake" id="btn-scroll-universe" class="btn-primary">
+              <span>Enter Radha’s Little Universe →</span>
+            </a>
+            <button id="btn-hero-melody" class="btn-secondary">
+              <span>Play Melody 🌸</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Hero Portrait Frame with Real Photo -->
+        <div class="hero-portrait-card">
+          <div class="portrait-decorative-corner corner-tl" aria-hidden="true"></div>
+          <div class="portrait-decorative-corner corner-br" aria-hidden="true"></div>
+          <div class="portrait-inner-frame">
+            <img 
+              id="hero-portrait-img" 
+              src="./assets/images/hero_portrait.jpg" 
+              alt="Portrait of Payal Patil (Radha)"
+              class="portrait-placeholder-art"
+              loading="eager"
+            >
+            <div class="portrait-caption-pill">
+              <span>Payal Patil • Radha 💫</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         STICKY CHAPTER NAVIGATION BAR
+         ======================================================================== -->
+    <nav class="chapter-nav-bar" aria-label="Chapters quick navigation">
+      <div class="chapter-nav-pill">
+        <a href="#hero-section" class="nav-item-btn">✨ Hero</a>
+        <a href="#section-cake" class="nav-item-btn">🎂 01 Cake</a>
+        <a href="#section-gallery" class="nav-item-btn">📸 02 Memories</a>
+        <a href="#section-nakhre" class="nav-item-btn">🤭 03 Nakhre</a>
+        <a href="#section-little-things" class="nav-item-btn">🌸 04 You</a>
+        <a href="#section-memory" class="nav-item-btn">💭 05 Yaad</a>
+        <a href="#section-envelopes" class="nav-item-btn">💌 06 Letters</a>
+        <a href="#section-letter" class="nav-item-btn">❤️ 07 Note</a>
+        <a href="#section-finale" class="nav-item-btn">✨ 08 Finale</a>
+      </div>
+    </nav>
+
+    <!-- ========================================================================
+         CHAPTER 01: THE MIDNIGHT BIRTHDAY CAKE
+         ======================================================================== -->
+    <section id="section-cake" class="section-cake" aria-label="Interactive birthday cake celebration">
+      <header class="cake-header">
+        <div class="eyebrow">CHAPTER 01 • THE CELEBRATION</div>
+        <h2 class="section-title">The Midnight Birthday Cake 🎂</h2>
+        <p class="section-subtitle">
+          Make a secret 18th birthday wish, blow out the 18 sparkling candles, and slice the sweetest piece!
+        </p>
+      </header>
+
+      <div class="cake-stage-container">
+        <div class="cake-stage-backdrop-glow" aria-hidden="true"></div>
+
+        <!-- 3D Tiered Cake Visual -->
+        <div class="cake-3d-wrapper" id="cake-interactive-stage">
+          <div class="candles-halo" id="candles-container" aria-label="18 birthday candles">
+            <!-- 18 candles injected dynamically via JS -->
+          </div>
+
+          <!-- Cake Tiers -->
+          <div class="cake-tier tier-top">
+            <div class="tier-frosting-swirls">
+              <span class="swirl-piping">🍓</span>
+              <span class="swirl-piping">✨</span>
+              <span class="swirl-piping">🌸</span>
+              <span class="swirl-piping">✨</span>
+              <span class="swirl-piping">🍓</span>
+            </div>
+          </div>
+          <div class="cake-tier tier-mid">
+            <div class="tier-drip-strip" aria-hidden="true"></div>
+          </div>
+          <div class="cake-tier tier-base"></div>
+          <div class="cake-platter" aria-hidden="true"></div>
+
+          <!-- Animated Knife for Cutting -->
+          <div class="cake-knife" id="cake-knife-tool" title="Tap to cut the cake!" aria-label="Knife to cut the cake">🔪</div>
+
+          <!-- Slice Cutout animation item -->
+          <div class="cake-slice-cutout" id="cake-slice-item" aria-hidden="true">🍰</div>
+        </div>
+
+        <!-- Interactive Controls Row -->
+        <div class="cake-controls-box">
+          <div class="cake-status-badge" id="cake-status-text">
+            <span>✨</span>
+            <span id="cake-instruction">Step 1: Make a wish before blowing your 18 candles!</span>
+          </div>
+
+          <div class="cake-button-group">
+            <button id="btn-make-wish" class="btn-secondary" aria-haspopup="dialog" aria-controls="wish-modal">
+              <span>Make a Wish ✨</span>
+            </button>
+            <button id="btn-blow-candles" class="btn-primary">
+              <span>Blow Candles 🌬️</span>
+            </button>
+            <button id="btn-cut-cake" class="btn-secondary">
+              <span>Cut the Cake 🔪</span>
+            </button>
+            <button id="btn-relight-cake" class="btn-subtle" title="Relight the 18 candles">
+              <span>↺ Relight Candles</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Wish Reveal Banner (Shown after cutting) -->
+        <div class="cake-wish-banner" id="cake-wish-banner" role="region" aria-live="polite">
+          <div class="eyebrow">BIRTHDAY BLESSING 🌸</div>
+          <div class="cake-wish-text">
+            "Happy 18th Birthday, Radhe! May all your secret wishes come true ✨"
+          </div>
+          <div class="cake-wish-sub" id="user-chosen-wish-display">
+            "Hamesha aisi hi hasti, chamakti aur khush rehna! 🌷"
+          </div>
+          <a href="#section-gallery" class="btn-primary" style="margin-top: 0.5rem;">
+            <span>Explore Your Photo Story (Chapter 02) →</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CHAPTER 02: EDITORIAL PHOTO STORY
+         ======================================================================== -->
+    <section id="section-gallery" class="section-gallery" aria-label="Editorial photo memories">
+      <header class="gallery-header">
+        <div class="eyebrow">CHAPTER 02 • TREASURED MOMENTS</div>
+        <h2 class="section-title">Moments of You 📸</h2>
+        <p class="section-subtitle">
+          A visual walk through your effortless grace, sweet smiles, and genuine sparkle.
+        </p>
+      </header>
+
+      <!-- Feature 1: Spotlight Grand Portrait Card -->
+      <article class="gallery-spotlight-card" id="spotlight-portrait-block">
+        <div class="spotlight-image-frame" id="spotlight-img-click" role="button" tabindex="0" aria-label="Open spotlight photo in fullscreen">
+          <img 
+            src="./assets/images/gallery/radha_01.jpg" 
+            alt="Payal smiling naturally" 
+            class="spotlight-img"
+            loading="lazy"
+          >
+          <div class="portrait-caption-pill" style="left: 1.5rem; bottom: 1.5rem;">
+            <span>Tap to View Fullscreen 🔍</span>
+          </div>
+        </div>
+
+        <div class="spotlight-content">
+          <div class="eyebrow">SPOTLIGHT PORTRAIT 🌷</div>
+          <h3 class="spotlight-title">The Natural Radiance</h3>
+          <div class="spotlight-quote">
+            "Radhe, teri smile mein ek alag hi khushi hai. Bas aise hi hasti rehna. 🌷"
+          </div>
+          <p class="spotlight-caption">
+            Sundar toh bahut log hote hain, lekin teri simplicity ka apna hi charm hai. No filters needed. Just Radhe being Radhe.
+          </p>
+          <div>
+            <button class="btn-secondary" id="btn-gallery-music">
+              <span>Play Photo Story Vibe 🎶</span>
+            </button>
+          </div>
+        </div>
+      </article>
+
+      <!-- Feature 2: Polaroid Scrapbook Grid -->
+      <div class="eyebrow" style="margin-bottom: 1.5rem;">SCRAPBOOK POLAROID COLLECTION 🌸</div>
+      <div class="polaroids-grid" id="polaroids-container" role="feed" aria-label="Polaroid photo collection">
+        <!-- Rendered dynamically from js/content.js -->
+      </div>
+
+      <!-- Feature 3: Horizontal Filmstrip Photo Carousel -->
+      <div class="carousel-wrapper">
+        <div class="carousel-title-row">
+          <div>
+            <span class="eyebrow" style="margin-bottom: 0.25rem;">MEMORIES FILMSTRIP</span>
+            <h3 class="carousel-heading">Swipe Through The Smiles 💫</h3>
+          </div>
+          <div class="carousel-controls">
+            <button class="carousel-arrow-btn" id="btn-carousel-prev" aria-label="Previous photos">‹</button>
+            <button class="carousel-arrow-btn" id="btn-carousel-next" aria-label="Next photos">›</button>
+          </div>
+        </div>
+
+        <div class="carousel-track" id="carousel-track">
+          <!-- Injected dynamically from js/content.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CHAPTER 03: RADHA KE CUTE NAKHRE 🤭
+         ======================================================================== -->
+    <section id="section-nakhre" class="section-nakhre" aria-label="Playful cute nakhre mini experiences">
+      <header class="nakhre-header">
+        <div class="eyebrow">CHAPTER 03 • SIGNATURE CHARM</div>
+        <h2 class="section-title">Radha Ke Cute Nakhre 🤭</h2>
+        <p class="section-subtitle">
+          Thodi si cute, thodi si filmy… aur full-on Radhe!
+        </p>
+      </header>
+
+      <div class="nakhre-grid">
+        
+        <!-- Interaction 1: The Drama Meter -->
+        <article class="nakhre-card glass-panel" aria-label="Drama Meter interactive test">
+          <div class="nakhre-card-icon" aria-hidden="true">🎭</div>
+          <h3 class="nakhre-card-title">The Drama Meter</h3>
+          <p class="nakhre-card-desc">
+            Scientifically calculating Radhe's legendary expression & nautanki quotient...
+          </p>
+
+          <div class="meter-gauge-track" aria-hidden="true">
+            <div class="meter-gauge-fill" id="meter-gauge-fill"></div>
+          </div>
+
+          <div class="meter-status-display" id="meter-status-display">Drama Level: Standing by...</div>
+          
+          <div class="meter-fun-line" id="meter-fun-line">
+            "Drama ho ya na ho, entertainment toh full guaranteed hai! 😂"
+          </div>
+
+          <button class="btn-primary" id="btn-check-drama">
+            <span>Check Radhe's Drama Level 🎭</span>
+          </button>
+        </article>
+
+        <!-- Interaction 2: Surprise Compliment Generator -->
+        <article class="nakhre-card glass-panel" aria-label="Surprise compliment generator">
+          <div class="nakhre-card-icon" aria-hidden="true">🌸</div>
+          <h3 class="nakhre-card-title">Surprise Compliment Generator</h3>
+          <p class="nakhre-card-desc">
+            Because a birthday girl deserves unlimited genuine appreciation!
+          </p>
+
+          <div class="compliment-box">
+            <div class="compliment-text" id="compliment-display-text">
+              "Your smile deserves its own fan club. 🌷"
+            </div>
+          </div>
+
+          <button class="btn-secondary" id="btn-get-compliment">
+            <span>Ek Aur Compliment Chahiye? 🌸</span>
+          </button>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CHAPTER 04: LITTLE THINGS THAT MAKE YOU, YOU 🌸
+         ======================================================================== -->
+    <section id="section-little-things" class="section-little-things" aria-label="Little things appreciated about Radha">
+      <header class="little-things-header">
+        <div class="eyebrow">CHAPTER 04 • GENUINE ADMIRATION</div>
+        <h2 class="section-title">Little Things That Make You, YOU 🌸</h2>
+        <p class="section-subtitle">
+          It's never the grand gestures; it's the quiet, effortless moments that make you truly special.
+        </p>
+      </header>
+
+      <div class="little-things-grid" id="little-things-grid">
+        <!-- Injected dynamically from js/content.js -->
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CHAPTER 05: A MEMORY I STILL REMEMBER 💭
+         ======================================================================== -->
+    <section id="section-memory" class="section-memory" aria-label="A quiet cherished memory">
+      <div class="memory-envelope-box">
+        <div class="eyebrow">CHAPTER 05 • A CHERISHED MOMENT</div>
+        <h2 class="section-title">Ek Chhoti Si Yaad… 💭</h2>
+        <p class="section-subtitle" style="margin-top: -0.5rem;">
+          A quiet, gentle memory sealed with warmth. Tap the wax seal below to unfold the letter:
+        </p>
+
+        <div class="memory-seal-wrapper" id="btn-open-memory-envelope" role="button" tabindex="0" aria-label="Unfold memory letter">
+          <div class="wax-seal-stamp" id="wax-seal-memory">💌</div>
+          <span style="font-family: var(--font-hand); font-size: 1.3rem; color: var(--color-plum);">Tap to Unfold Letter ✉️</span>
+        </div>
+
+        <div class="memory-letter-sheet" id="memory-letter-sheet">
+          <div class="memory-letter-body" id="memory-letter-body">
+            <!-- Dynamic memory text injected here -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CHAPTER 06: SECRET SURPRISE ENVELOPES 💌
+         ======================================================================== -->
+    <section id="section-envelopes" class="section-envelopes" aria-label="Open when sealed messages">
+      <header class="envelopes-header">
+        <div class="eyebrow">CHAPTER 06 • SEALED ENVELOPES</div>
+        <h2 class="section-title">Open When You Need a Smile 💌</h2>
+        <p class="section-subtitle">
+          Six sealed letters for six different moods. Tap any envelope to break the seal and reveal your note:
+        </p>
+      </header>
+
+      <div class="envelopes-grid" id="envelopes-grid">
+        <!-- Injected dynamically from js/content.js -->
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CHAPTER 07: THE HEARTFELT BIRTHDAY LETTER ❤️
+         ======================================================================== -->
+    <section id="section-letter" class="section-letter" aria-label="Heartfelt letter from Mahesh">
+      <div class="heartfelt-letter-card parchment-letter">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+          <span class="eyebrow">CHAPTER 07 • THE LETTER</span>
+          <div class="wax-seal-stamp" style="width:38px;height:38px;font-size:1rem;" aria-hidden="true">M</div>
+        </div>
+
+        <h2 class="letter-salutation" id="letter-salutation">Hey Radhe,</h2>
+
+        <div id="letter-paragraphs-container" style="display:flex; flex-direction:column; gap:1.2rem;">
+          <!-- Paragraphs injected dynamically -->
+        </div>
+
+        <div class="letter-signoff" id="letter-signoff">— Mahesh</div>
+
+        <div style="text-align: center; margin-top: 1.5rem;">
+          <a href="#section-finale" class="btn-primary">
+            <span>Continue to the Finale ✨</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         CHAPTER 08: MAGICAL FINALE ✨
+         ======================================================================== -->
+    <section id="section-finale" class="section-finale" aria-label="Magical closing scene">
+      <div class="finale-garden-card">
+        <div class="finale-twilight-portrait">
+          <img src="./assets/images/hero_portrait.jpg" alt="Radha in twilight glow">
+        </div>
+
+        <div class="eyebrow" style="background: rgba(255,255,255,0.15); color: var(--color-champagne); border-color: rgba(232, 193, 112, 0.4);">
+          CHAPTER 08 • THE FINALE
+        </div>
+
+        <h2 class="finale-title">Keep Shining, Radhe ✨</h2>
+
+        <div class="finale-quote">
+          "May your days be filled with laughter,
+          your dreams with possibilities,
+          and your heart with endless happiness.
+
+          Happy 18th Birthday, Radhe! 🌷"
+        </div>
+
+        <div class="finale-buttons-row">
+          <button class="btn-primary" id="btn-finale-celebrate">
+            <span>Celebrate Again 🌸</span>
+          </button>
+          <a href="#hero-section" class="btn-secondary" id="btn-replay-magic">
+            <span>Replay The Magic ↺</span>
+          </a>
+        </div>
+
+        <div class="finale-credit">
+          Made with care, just to make you smile. 💫
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       MODAL: MAKE A WISH
+       ======================================================================== -->
+  <div id="wish-modal" class="cinematic-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="wish-modal-title">
+    <div class="wish-modal-card">
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <span class="eyebrow">18TH BIRTHDAY WISH ✨</span>
+        <button id="btn-close-wish-modal" class="btn-subtle" style="font-size: 1.2rem;">✕</button>
+      </div>
+      <h3 id="wish-modal-title" style="font-family: var(--font-serif); font-size: 1.6rem; color: var(--color-plum);">
+        Make a Secret Wish, Radhe 🌸
+      </h3>
+      <p style="font-size: 0.92rem; color: var(--text-muted); margin-top: -0.75rem;">
+        Pick a blessing below or write your own heartfelt wish for your 18th milestone year:
+      </p>
+
+      <div class="wish-options-list" id="wish-presets-list">
+        <!-- Preset wishes injected dynamically -->
+      </div>
+
+      <input 
+        type="text" 
+        id="wish-custom-input" 
+        class="wish-custom-input" 
+        placeholder="Or type a custom secret wish here..."
+        maxlength="100"
+      >
+
+      <button id="btn-confirm-wish" class="btn-primary" style="width: 100%;">
+        <span>Lock In My Wish & Blow Candles 🌬️</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       MODAL: FULLSCREEN LIGHTBOX PHOTO VIEWER
+       ======================================================================== -->
+  <div id="lightbox-modal" class="lightbox-modal" role="dialog" aria-modal="true" aria-label="Photo lightbox viewer">
+    <div class="lightbox-container">
+      <button class="lightbox-close-btn" id="btn-lightbox-close" aria-label="Close photo viewer">✕</button>
+      
+      <button class="lightbox-nav-btn lightbox-prev" id="btn-lightbox-prev" aria-label="Previous photo">‹</button>
+      <button class="lightbox-nav-btn lightbox-next" id="btn-lightbox-next" aria-label="Next photo">›</button>
+
+      <div class="lightbox-img-wrapper">
+        <img id="lightbox-main-img" src="" alt="Fullscreen photo of Radha" class="lightbox-img">
+      </div>
+
+      <div class="lightbox-caption-bar" id="lightbox-caption-text">
+        Caption loading...
+      </div>
+    </div>
+  </div>
+
+  <!-- ========================================================================
+       FOOTER NOTE & METADATA
+       ======================================================================== -->
+  <footer class="footer-wrapper">
+    <div class="footer-content">
+      <div class="footer-signature">Made with genuine admiration for Radha 🌸</div>
+      <p class="footer-meta">
+        Born on 29th October 2008 • Milestone 18th Birthday Celebration
+      </p>
+      <div class="audio-roadmap-pill">
+        <span>🎧 Intelligent 5-Track Music Engine: Tere Pyaar Mein • Happy Birthday • London Thumakda • Gallan Goodiyaan • Heeriye</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Application Logic (ES6 Module) -->
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

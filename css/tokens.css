@@ -1,0 +1,57 @@
+:root {
+  /* Editorial Fairytale Color Palette */
+  --color-blush: #F8DDE7;
+  --color-lavender: #DCD5FF;
+  --color-ivory: #FFF9F5;
+  --color-champagne: #F3E2C5;
+  --color-plum: #49344F;
+  --color-plum-dark: #2D1E32;
+  --color-plum-light: #6E5375;
+  --color-rose-gold: #E5A9B4;
+  --color-accent-gold: #E8C170;
+  --color-emerald-soft: #A8D5BA;
+
+  /* Alpha / Glass Variants */
+  --bg-primary: #FFF9F5;
+  --bg-glass-card: rgba(255, 249, 245, 0.72);
+  --bg-glass-card-hover: rgba(255, 255, 255, 0.88);
+  --bg-glass-border: rgba(220, 213, 255, 0.45);
+  --bg-glass-shadow: 0 16px 36px -10px rgba(73, 52, 79, 0.12), 0 0 1px 1px rgba(255, 255, 255, 0.8) inset;
+  
+  --text-primary: #49344F;
+  --text-muted: #735D7A;
+  --text-light: #9B86A2;
+  --text-on-dark: #FFF9F5;
+
+  /* Typography */
+  --font-serif: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-hand: 'Caveat', cursive;
+
+  /* Spacing Scale */
+  --space-2xs: 0.25rem;
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4.5rem;
+
+  /* Radii */
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-full: 9999px;
+
+  /* Transitions */
+  --transition-fast: 0.18s cubic-bezier(0.2, 0.8, 0.2, 1);
+  --transition-base: 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+  --transition-slow: 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Elevation */
+  --shadow-sm: 0 2px 8px rgba(73, 52, 79, 0.06);
+  --shadow-md: 0 8px 24px -4px rgba(73, 52, 79, 0.1);
+  --shadow-lg: 0 20px 48px -12px rgba(73, 52, 79, 0.18);
+  --shadow-glow: 0 0 32px rgba(229, 169, 180, 0.4);
+}

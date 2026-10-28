@@ -1,0 +1,7 @@
+# Private asset originals (don't commit these to a public repo)
+assets/images/radha-photos/
+
+# System / Editor files
+.DS_Store
+*.log
+node_modules/
